@@ -17,9 +17,19 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+		<dependency> 
+			<groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-starter-web</artifactId> 
+			<exclusions> 
+				<exclusion> 
+					<groupId>org.springframework.boot</groupId> 
+					<artifactId>spring-boot-starter-logging</artifactId> 
+				</exclusion> 
+			</exclusions> 
+		</dependency> 
+		<dependency> 
+			<groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-starter-log4j2</artifactId> 
 		</dependency>
 
 		<dependency>
@@ -27,6 +37,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		 <!-- Springfox Swagger dependencies -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
