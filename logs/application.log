@@ -1,0 +1,24 @@
+2024-05-21T05:14:58.937+05:30  INFO 8624 --- [ShopSphere] [main] c.b.ShopSphere.ShopSphereApplication     : Starting ShopSphereApplication using Java 17.0.10 with PID 8624 (C:\Users\babul\OneDrive\Desktop\ShopSphere\shopsphere-backend\target\classes started by babul in C:\Users\babul\OneDrive\Desktop\ShopSphere)
+2024-05-21T05:14:58.937+05:30  INFO 8624 --- [ShopSphere] [main] c.b.ShopSphere.ShopSphereApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-05-21T05:14:59.871+05:30  INFO 8624 --- [ShopSphere] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-21T05:14:59.894+05:30  INFO 8624 --- [ShopSphere] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-21T05:14:59.896+05:30  INFO 8624 --- [ShopSphere] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-21T05:14:59.997+05:30  INFO 8624 --- [ShopSphere] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-21T05:14:59.998+05:30  INFO 8624 --- [ShopSphere] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 961 ms
+2024-05-21T05:15:00.405+05:30  INFO 8624 --- [ShopSphere] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-21T05:15:00.419+05:30  INFO 8624 --- [ShopSphere] [main] c.b.ShopSphere.ShopSphereApplication     : Started ShopSphereApplication in 2.049 seconds (process running for 2.4)
+2024-05-21T05:15:15.068+05:30  INFO 10072 --- [ShopSphere] [main] c.b.ShopSphere.ShopSphereApplication     : Starting ShopSphereApplication using Java 17.0.10 with PID 10072 (C:\Users\babul\OneDrive\Desktop\ShopSphere\shopsphere-backend\target\classes started by babul in C:\Users\babul\OneDrive\Desktop\ShopSphere)
+2024-05-21T05:15:15.075+05:30  INFO 10072 --- [ShopSphere] [main] c.b.ShopSphere.ShopSphereApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-05-21T05:15:15.970+05:30  INFO 10072 --- [ShopSphere] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-21T05:15:15.970+05:30  INFO 10072 --- [ShopSphere] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-21T05:15:15.970+05:30  INFO 10072 --- [ShopSphere] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-21T05:15:16.066+05:30  INFO 10072 --- [ShopSphere] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-21T05:15:16.066+05:30  INFO 10072 --- [ShopSphere] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 929 ms
+2024-05-21T05:15:16.390+05:30  INFO 10072 --- [ShopSphere] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-21T05:15:16.413+05:30  INFO 10072 --- [ShopSphere] [main] c.b.ShopSphere.ShopSphereApplication     : Started ShopSphereApplication in 1.726 seconds (process running for 2.072)
+2024-05-21T05:15:34.467+05:30  INFO 10072 --- [ShopSphere] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-21T05:15:34.467+05:30  INFO 10072 --- [ShopSphere] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-21T05:15:34.467+05:30  INFO 10072 --- [ShopSphere] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-05-21T05:15:34.518+05:30  INFO 10072 --- [ShopSphere] [http-nio-8080-exec-2] com.backend.ShopSphere.LogController     : Log level: INFO
+2024-05-21T05:15:34.520+05:30 ERROR 10072 --- [ShopSphere] [http-nio-8080-exec-2] com.backend.ShopSphere.LogController     : Log level: ERROR
+2024-05-21T05:15:34.520+05:30  WARN 10072 --- [ShopSphere] [http-nio-8080-exec-2] com.backend.ShopSphere.LogController     : Log level: WARN
