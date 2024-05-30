@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.backend.ShopSphere.Logs.LogController;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,8 +24,8 @@ import java.util.List;
 
 @RestController
 public class FileUploadController {
-  Logger logger 
-  = LoggerFactory.getLogger(LogController.class);
+  Logger logger
+  = LoggerFactory.getLogger(FileUploadController.class);
 
   @Autowired
   private ImageService imageService;
@@ -37,7 +36,7 @@ public class FileUploadController {
     try {
       String uploadDirectory = "shopsphere-backend/src/main/java/com/backend/ShopSphere/Images";
       String uniqName = imageService.saveImageToStorage(uploadDirectory, img);
-      return ResponseEntity.ok("File uploaded successfully      "+uniqName);
+      return ResponseEntity.ok("File uploaded successfully      "+uploadDirectory+uniqName);
     } catch (IOException e) {
       e.printStackTrace();
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file");
