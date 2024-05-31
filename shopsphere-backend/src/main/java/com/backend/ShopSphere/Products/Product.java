@@ -1,12 +1,16 @@
 package com.backend.ShopSphere.Products;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "products")
+@Document(collection = "Products")
 public class Product {
+
+    @Autowired
+    private ProductService productService;
 
     @Id
     private Integer id;
@@ -18,6 +22,15 @@ public class Product {
     private Integer newPrice;
     private Date date;
     private Boolean isAvailable;
+    private Integer quantity;
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     public Integer getId() {
         return id;
@@ -90,7 +103,8 @@ public class Product {
         isAvailable = available;
     }
 
-    public Product(Integer id, String productName, String productDesc, String imageUrl, String category, Integer oldPrice, Integer newPrice, Boolean isAvailable) {
+
+    public Product(Integer id,String productName, String productDesc, String imageUrl, String category, Integer oldPrice, Integer newPrice, Integer quantity) {
         this.id = id;
         this.productName = productName;
         this.productDesc = productDesc;
@@ -98,8 +112,9 @@ public class Product {
         this.category = category;
         this.oldPrice = oldPrice;
         this.newPrice = newPrice;
+        this.quantity = quantity;
         this.date = new Date();
-        this.isAvailable = isAvailable;
+        this.isAvailable = true;
     }
 
 
