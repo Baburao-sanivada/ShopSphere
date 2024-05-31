@@ -15,10 +15,21 @@ public class User {
     private String email;
     private String password;
 
+    public void setCartData(int[] cartData) {
+        this.cartData = cartData;
+    }
+
     private int[] cartData;
+
+    public void addItemToCart(int index) {
+        this.cartData[index]+=1;
+    }
 
     private Date date;
 
+    public int[] getCartData() {
+        return cartData;
+    }
 
     public String getName() {
         return name;
