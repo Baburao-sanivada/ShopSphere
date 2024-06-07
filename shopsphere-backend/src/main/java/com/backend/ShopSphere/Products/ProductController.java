@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class ProductController {
         return new ResponseEntity<>(new ApiResponse(productDto.getName()+"Product Added", true), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/get" , produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/allProducts" , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> getAllProducts(){
         List<Product> res=productService.getAllProducts();
         return new ResponseEntity<>(new ApiResponse(res,"Products",true), HttpStatus.OK);
@@ -37,6 +38,15 @@ public class ProductController {
     public void deleteProduct(@PathVariable("productId") Integer productId){
         productService.deleteProduct(productId);
 //        return new ResponseEntity<>(new ApiResponse(res,"Product Deleted Successfully",true), HttpStatus.OK);
+    }
+
+    @GetMapping("/newCollections")
+    public ResponseEntity<ApiResponse> getNewCollections(){
+        List<Product> res=productService.getAllProducts();
+        Collections.sort(res,(a,b)-> - a.getId() + b.getId());
+        res.subList(0,Math.min(res.size(),10));
+        System.out.println(res);
+        return new ResponseEntity<>(new ApiResponse(res,"Products",true), HttpStatus.OK);
     }
 
 }

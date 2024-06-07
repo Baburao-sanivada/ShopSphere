@@ -33,7 +33,7 @@ public class UserService {
     }
 
     private User getUserFromUserDto(SignUpDto userDto) {
-        User user = new User(userDto.getName(), userDto.getEmail(), userDto.getPassword());
+        User user = new User(userDto.getUsername(), userDto.getEmail(), userDto.getPassword());
         return user;
     }
 
@@ -51,7 +51,7 @@ public class UserService {
         Query query = new Query();
         query.addCriteria(Criteria.where("email").is(updatedUser.getEmail()));
         Update update = new Update()
-                .set("name", updatedUser.getName())
+                .set("name", updatedUser.getUsername())
                 .set("password", updatedUser.getPassword())
                 .set("cartData", updatedUser.getCartData());
 
