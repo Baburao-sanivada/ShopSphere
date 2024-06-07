@@ -10,7 +10,7 @@ import java.util.Date;
 @Document(collection = "Users")
 public class User {
 
-    private String name;
+    private String username;
     @Id
     private String email;
     private String password;
@@ -31,12 +31,12 @@ public class User {
         return cartData;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -56,7 +56,7 @@ public class User {
     }
 
     public User( String name, String email, String password) {
-        this.name = name;
+        this.username = name;
         this.email = email.toLowerCase();
         this.password = password;
         this.cartData = new int[200];
