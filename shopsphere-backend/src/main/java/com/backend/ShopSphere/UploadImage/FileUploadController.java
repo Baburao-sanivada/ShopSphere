@@ -1,5 +1,6 @@
-package com.backend.ShopSphere;
+package com.backend.ShopSphere.UploadImage;
 
+import com.backend.ShopSphere.CommonUtility.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @RestController
 public class FileUploadController {
@@ -32,14 +28,15 @@ public class FileUploadController {
 
   @PostMapping("/upload")
   @ResponseBody
-  public ResponseEntity<String> uploadFile(@RequestPart MultipartFile img) {
+  public ResponseEntity<ApiResponse> uploadFile(@RequestPart MultipartFile product) {
+    System.out.println("Upload Method Called");
     try {
-      String uploadDirectory = "shopsphere-backend/src/main/java/com/backend/ShopSphere/Images";
-      String uniqName = imageService.saveImageToStorage(uploadDirectory, img);
-      return ResponseEntity.ok("File uploaded successfully      "+uploadDirectory+uniqName);
+      String uploadDirectory = "shopsphere-backend/src/main/resources/static/Images";
+      String uniqName = imageService.saveImageToStorage(uploadDirectory, product);
+      return new ResponseEntity<>(new ApiResponse("/Images/"+uniqName,true),HttpStatus.OK );
     } catch (IOException e) {
       e.printStackTrace();
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file");
+      return new ResponseEntity<>(new ApiResponse("Unable to upload",false),HttpStatus.OK );
     }
   }
 
