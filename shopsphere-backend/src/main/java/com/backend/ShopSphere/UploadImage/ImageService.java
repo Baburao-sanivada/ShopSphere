@@ -1,4 +1,4 @@
-package com.backend.ShopSphere;
+package com.backend.ShopSphere.UploadImage;
 
 import java.io.IOException;
 import java.nio.file.Files;

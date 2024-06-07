@@ -29,4 +29,29 @@ public class CartService {
         userService.updateUser(user);
         return new ResponseEntity(new ApiResponse("Item Added Successfully",true), HttpStatus.OK);
     }
+
+    public ResponseEntity<ApiResponse> removeItemFromCart(String jwtToken, Integer itemId) {
+        String email = JsonUtil.extractUsername(jwtToken);
+        Optional<User> optionalUser = userService.getUserWithEmail(email);
+        if(optionalUser.isEmpty()){
+            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.OK);
+        }
+        //User Exists
+        User user = optionalUser.get();
+        user.removeItemFromCart(itemId);
+        userService.updateUser(user);
+        return new ResponseEntity(new ApiResponse("Item Removed Successfully",true), HttpStatus.OK);
+
+    }
+
+    public ResponseEntity<int[]> getCartData(String jwtToken) {
+        String email = JsonUtil.extractUsername(jwtToken);
+        Optional<User> optionalUser = userService.getUserWithEmail(email);
+        if(optionalUser.isEmpty()){
+            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.OK);
+        }
+        //User Exists
+        User user = optionalUser.get();
+        return new ResponseEntity<>(user.getCartData(),HttpStatus.OK);
+    }
 }

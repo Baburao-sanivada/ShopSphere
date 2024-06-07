@@ -70,4 +70,8 @@ public class User {
 
     public User() {
     }
+
+    public void removeItemFromCart(Integer index) {
+        this.cartData[index]-=1;
+    }
 }

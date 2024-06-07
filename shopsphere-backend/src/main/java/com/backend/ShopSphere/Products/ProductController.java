@@ -2,6 +2,7 @@ package com.backend.ShopSphere.Products;
 
 import com.backend.ShopSphere.CommonUtility.ApiResponse;
 import com.backend.ShopSphere.DTO.ProductDto;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,19 @@ public class ProductController {
     @PostMapping(value = "/add", produces = "application/json;charset=UTF-8")
     public ResponseEntity<ApiResponse> addProduct(@RequestBody ProductDto productDto){
         String res=productService.saveProduct(productDto);
-        logger.info("Hello from add product");
-        return new ResponseEntity<>(new ApiResponse(productDto.getProductName()+"Prodct Added", true), HttpStatus.OK);
+        System.out.println("Hello from add product");
+        return new ResponseEntity<>(new ApiResponse(productDto.getName()+"Product Added", true), HttpStatus.OK);
     }
 
     @GetMapping(value = "/get" , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> getAllProducts(){
         List<Product> res=productService.getAllProducts();
+        return new ResponseEntity<>(new ApiResponse(res,"Products",true), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/delete")
+    public ResponseEntity<ApiResponse> deleteProduct(@PathVariable Integer productId){
+        Product res=productService.deleteProduct(productId);
         return new ResponseEntity<>(new ApiResponse(res,"Products",true), HttpStatus.OK);
     }
 

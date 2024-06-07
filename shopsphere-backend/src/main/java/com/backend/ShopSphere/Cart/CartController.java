@@ -22,4 +22,14 @@ public class CartController {
     public ResponseEntity<ApiResponse> addToCart(@PathVariable("itemId") Integer itemId, @RequestHeader("jwt") String jwtToken){
         return cartService.addItemToCart(jwtToken,itemId);
     }
+
+    @PostMapping("/remove/{itemId}")
+    public  ResponseEntity<ApiResponse> removeFromCart(@PathVariable("itemId") Integer itemId, @RequestHeader("jwt") String jwtToken){
+        return cartService.removeItemFromCart(jwtToken,itemId);
+    }
+
+    @PostMapping("/getCartData")
+    public  ResponseEntity<int[]> getCartData(@RequestHeader("jwt") String jwtToken){
+        return cartService.getCartData(jwtToken);
+    }
 }

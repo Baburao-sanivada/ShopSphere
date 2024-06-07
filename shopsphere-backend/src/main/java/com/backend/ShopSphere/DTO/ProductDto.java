@@ -4,40 +4,28 @@ import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBl
 
 public class ProductDto {
     @NotBlank
-    private String productName;
-
+    private String name;
     @NotBlank
-    private String productDesc;
-    @NotBlank
-    private String imageUrl;
+    private String image;
     @NotBlank
     private String category;
-    private Integer oldPrice;
-    private Integer newPrice;
-    private Integer quantity;
+    private Integer old_price;
+    private Integer new_price;
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProductDesc() {
-        return productDesc;
+    public String getImage() {
+        return image;
     }
 
-    public void setProductDesc(String productDesc) {
-        this.productDesc = productDesc;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getCategory() {
@@ -48,27 +36,19 @@ public class ProductDto {
         this.category = category;
     }
 
-    public Integer getOldPrice() {
-        return oldPrice;
+    public Integer getOld_price() {
+        return old_price;
     }
 
-    public void setOldPrice(Integer oldPrice) {
-        this.oldPrice = oldPrice;
+    public void setOld_price(Integer old_price) {
+        this.old_price = old_price;
     }
 
-    public Integer getNewPrice() {
-        return newPrice;
+    public Integer getNew_price() {
+        return new_price;
     }
 
-    public void setNewPrice(Integer newPrice) {
-        this.newPrice = newPrice;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setNew_price(Integer new_price) {
+        this.new_price = new_price;
     }
 }
