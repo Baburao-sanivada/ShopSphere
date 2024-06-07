@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -36,6 +37,10 @@ public class ProductService {
     }
 
     public Product deleteProduct(Integer productId) {
-        productRepo.
+        Optional<Product> productOptional = productRepo.findById(productId);
+        if (productOptional.isPresent()) {
+            productRepo.deleteById(productId);
+        }
+        return productOptional.get();
     }
 }

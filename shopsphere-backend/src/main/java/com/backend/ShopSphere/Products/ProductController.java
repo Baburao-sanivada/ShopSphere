@@ -33,10 +33,10 @@ public class ProductController {
         return new ResponseEntity<>(new ApiResponse(res,"Products",true), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/delete")
-    public ResponseEntity<ApiResponse> deleteProduct(@PathVariable Integer productId){
-        Product res=productService.deleteProduct(productId);
-        return new ResponseEntity<>(new ApiResponse(res,"Products",true), HttpStatus.OK);
+    @PostMapping(value = "/delete/{productId}")
+    public void deleteProduct(@PathVariable("productId") Integer productId){
+        productService.deleteProduct(productId);
+//        return new ResponseEntity<>(new ApiResponse(res,"Product Deleted Successfully",true), HttpStatus.OK);
     }
 
 }

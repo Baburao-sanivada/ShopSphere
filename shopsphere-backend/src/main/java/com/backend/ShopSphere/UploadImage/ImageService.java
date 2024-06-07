@@ -14,7 +14,7 @@ public class ImageService {
 
     // Save image in a local directory
     public String saveImageToStorage(String uploadDirectory, MultipartFile imageFile) throws IOException {
-        String uniqueFileName = UUID.randomUUID().toString() + "_" + imageFile.getOriginalFilename();
+        String uniqueFileName = imageFile.getOriginalFilename();
 
         Path uploadPath = Path.of(uploadDirectory);
         Path filePath = uploadPath.resolve(uniqueFileName);
