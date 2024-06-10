@@ -1,12 +1,12 @@
 # ShopSphere
 
-ShopSphere is an e-commerce web application designed to offer a comprehensive online shopping experience. It includes features such as product listing, shopping cart management, user authentication, an admin panel for product management and order tracking, and secure payment processing with Stripe.
+ShopSphere is an e-commerce web application designed to offer a comprehensive online shopping experience. It includes features such as product listing, shopping cart management, user authentication using JWT, an admin panel for product management and order tracking, and secure payment processing with Stripe.
 
 ## Features
 
 - **Product Listing**: Browse through a wide variety of products with detailed descriptions.
 - **Shopping Cart**: Manage items in your cart - add, update, or remove products.
-- **User Authentication**: Secure user registration and login functionalities.
+- **User Authentication**: Secure user registration and login functionalities using JWT.
 - **Admin Panel**: Admin functionalities to manage products.
 - **Payment Integration**: Secure payment processing with Stripe.
 
@@ -21,6 +21,8 @@ ShopSphere is an e-commerce web application designed to offer a comprehensive on
   - Spring Security
   - Hibernate
   - MongoDB (NoSQL)
+- **Authentication**: 
+  - JWT (JSON Web Tokens)
 - **Payment Integration**: 
   - Stripe
 - **Build Tools**: 
@@ -71,8 +73,6 @@ ShopSphere is an e-commerce web application designed to offer a comprehensive on
 
 - Access the frontend at `http://localhost:3000`.
 - The backend API is available at `http://localhost:8081`.
-
-### API Endpoints
 
 ### API Endpoints
 
