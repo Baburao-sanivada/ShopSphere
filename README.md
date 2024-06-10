@@ -74,8 +74,24 @@ ShopSphere is an e-commerce web application designed to offer a comprehensive on
 
 ### API Endpoints
 
+### API Endpoints
+
+- **Cart API**
+    - `POST /cart/addItemToCart`: Add an item to the cart.
+    - `POST /cart/removeItemFromCart`: Remove an item from the cart.
+    - `GET /cart/getCartData`: Retrieve cart data.
+
 - **Product API**
-    - `GET /product/getCartData`: Retrieve cart data.
+    - `POST /product/add`: Add a new product.
+    - `GET /product/allProducts`: Retrieve all products.
+    - `POST /product/delete/{productId}`: Delete a product by its ID.
+    - `GET /product/newCollections`: Retrieve the latest product collections.
+
+- **User API**
+    - `POST /user/signup`: Sign up a new user.
+    - `POST /user/login`: Log in a user.
+    - `GET /user/getEmail`: Retrieve the email of a user from the JWT token.
+
 - **Payment API**
     - `POST /payment/create`: Create a payment intent using Stripe.
 
