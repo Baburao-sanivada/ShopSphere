@@ -21,7 +21,7 @@ public class CartService {
         String email = JsonUtil.extractUsername(jwtToken);
         Optional<User> optionalUser = userService.getUserWithEmail(email);
         if(optionalUser.isEmpty()){
-            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.OK);
+            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.NOT_FOUND);
         }
         //User Exists
         User user = optionalUser.get();
@@ -34,7 +34,7 @@ public class CartService {
         String email = JsonUtil.extractUsername(jwtToken);
         Optional<User> optionalUser = userService.getUserWithEmail(email);
         if(optionalUser.isEmpty()){
-            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.OK);
+            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.NOT_FOUND);
         }
         //User Exists
         User user = optionalUser.get();
@@ -48,7 +48,7 @@ public class CartService {
         String email = JsonUtil.extractUsername(jwtToken);
         Optional<User> optionalUser = userService.getUserWithEmail(email);
         if(optionalUser.isEmpty()){
-            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.OK);
+            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.NOT_FOUND);
         }
         //User Exists
         User user = optionalUser.get();

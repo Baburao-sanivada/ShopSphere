@@ -19,17 +19,17 @@ public class CartController {
     private CartService cartService;
 
     @PostMapping("/add/{itemId}")
-    public ResponseEntity<ApiResponse> addToCart(@PathVariable("itemId") Integer itemId, @RequestHeader("jwt") String jwtToken){
+    public ResponseEntity<ApiResponse> addToCart(@PathVariable("itemId") Integer itemId, @RequestHeader("auth-token") String jwtToken){
         return cartService.addItemToCart(jwtToken,itemId);
     }
 
     @PostMapping("/remove/{itemId}")
-    public  ResponseEntity<ApiResponse> removeFromCart(@PathVariable("itemId") Integer itemId, @RequestHeader("jwt") String jwtToken){
+    public  ResponseEntity<ApiResponse> removeFromCart(@PathVariable("itemId") Integer itemId, @RequestHeader("auth-token") String jwtToken){
         return cartService.removeItemFromCart(jwtToken,itemId);
     }
 
     @PostMapping("/getCartData")
-    public  ResponseEntity<int[]> getCartData(@RequestHeader("jwt") String jwtToken){
+    public  ResponseEntity<int[]> getCartData(@RequestHeader("auth-token") String jwtToken){
         return cartService.getCartData(jwtToken);
     }
 }
