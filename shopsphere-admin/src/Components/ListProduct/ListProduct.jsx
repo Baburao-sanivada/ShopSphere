@@ -7,7 +7,7 @@ const ListProduct = () => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = () => {
-    fetch(Base_Url + "/product/get")
+    fetch(Base_Url + "/product/allProducts")
       .then((res) => res.json())
       .then((data) => {
         console.log("Response For get All Products");
@@ -29,7 +29,7 @@ const ListProduct = () => {
       },
     });
 
-    fetch(`${Base_Url}/product/get`, {})
+    fetch(`${Base_Url}/product/allProducts`, {})
       .then((res) => res.json())
       .then((data) => setAllProducts(data.Response));
   };

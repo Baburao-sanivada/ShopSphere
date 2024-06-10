@@ -29,7 +29,7 @@ public class CartController {
     }
 
     @PostMapping("/getCartData")
-    public  ResponseEntity<int[]> getCartData(@RequestHeader("auth-token") String jwtToken){
+    public  ResponseEntity<ApiResponse> getCartData(@RequestHeader("auth-token") String jwtToken){
         return cartService.getCartData(jwtToken);
     }
 }

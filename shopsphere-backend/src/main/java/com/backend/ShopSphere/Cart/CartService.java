@@ -44,7 +44,7 @@ public class CartService {
 
     }
 
-    public ResponseEntity<int[]> getCartData(String jwtToken) {
+    public ResponseEntity<ApiResponse> getCartData(String jwtToken) {
         String email = JsonUtil.extractUsername(jwtToken);
         Optional<User> optionalUser = userService.getUserWithEmail(email);
         if(optionalUser.isEmpty()){
@@ -52,6 +52,6 @@ public class CartService {
         }
         //User Exists
         User user = optionalUser.get();
-        return new ResponseEntity<>(user.getCartData(),HttpStatus.OK);
+        return new ResponseEntity(new ApiResponse(user.getCartData(),"Cart Data",true),HttpStatus.OK);
     }
 }
