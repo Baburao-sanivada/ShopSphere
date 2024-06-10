@@ -61,14 +61,12 @@ const ShopContextProvider = (props) => {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addtocart", {
+      fetch(`${Base_Url}/cart/add/${itemId}`, {
         method: "POST",
         headers: {
-          Accept: "application/form-data",
           "auth-token": `${localStorage.getItem("auth-token")}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ itemId: itemId }),
       })
         .then((resp) => resp.json())
         .then((data) => {
@@ -80,14 +78,12 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/removefromcart", {
+      fetch(`${Base_Url}/cart/remove/${itemId}`, {
         method: "POST",
         headers: {
-          Accept: "application/form-data",
           "auth-token": `${localStorage.getItem("auth-token")}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ itemId: itemId }),
       })
         .then((resp) => resp.json())
         .then((data) => {
