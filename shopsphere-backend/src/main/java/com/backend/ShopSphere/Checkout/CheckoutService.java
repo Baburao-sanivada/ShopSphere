@@ -2,6 +2,7 @@ package com.backend.ShopSphere.Checkout;
 
 import com.backend.ShopSphere.CommonUtility.ApiResponse;
 import com.backend.ShopSphere.DTO.CheckoutDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,9 @@ import java.util.List;
 
 @Service
 public class CheckoutService {
-    String Base_Url = "http://localhost:3000/";
+
+    @Value("${Base_url}")
+    private String Base_Url;
     public ResponseEntity<ApiResponse> createSession(List<CheckoutDto> checkoutItems) throws StripeException{
 
         SessionCreateParams params = SessionCreateParams.builder()
