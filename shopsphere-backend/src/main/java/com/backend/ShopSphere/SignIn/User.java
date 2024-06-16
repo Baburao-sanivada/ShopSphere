@@ -74,4 +74,8 @@ public class User {
     public void removeItemFromCart(Integer index) {
         this.cartData[index]-=1;
     }
+
+    public void clearCart() {
+        cartData = new int[200];
+    }
 }

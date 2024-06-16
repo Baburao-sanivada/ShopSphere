@@ -3,6 +3,7 @@ import "./Item.css";
 import { Link } from "react-router-dom";
 
 const Item = (props) => {
+  // console.log(props);
   return (
     <div className="item">
       <Link to={`/product/${props.id}`} style={{ textDecoration: "none" }}>

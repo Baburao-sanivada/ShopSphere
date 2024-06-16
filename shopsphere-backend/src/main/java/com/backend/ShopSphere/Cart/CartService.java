@@ -54,4 +54,17 @@ public class CartService {
         User user = optionalUser.get();
         return new ResponseEntity(new ApiResponse(user.getCartData(),"Cart Data",true),HttpStatus.OK);
     }
+
+    public ResponseEntity<ApiResponse> clearCartData(String jwtToken) {
+        String email = JsonUtil.extractUsername(jwtToken);
+        Optional<User> optionalUser = userService.getUserWithEmail(email);
+        if(optionalUser.isEmpty()){
+            return new ResponseEntity(new ApiResponse("Invalid User",true), HttpStatus.NOT_FOUND);
+        }
+        //User Exists
+        User user = optionalUser.get();
+        user.clearCart();
+        userService.updateUser(user);
+        return new ResponseEntity(new ApiResponse("Cart Cleared",true), HttpStatus.OK);
+    }
 }
