@@ -9,6 +9,45 @@ const CartItems = () => {
   const { cartItems, removeFromCart, getTotalCartAmount } =
     useContext(ShopContext);
 
+  const getCheckoutProductsFromCartItems = () => {
+    var items = [];
+    for (let i = 0; i < products.length; i++) {
+      console.log(products[i]);
+      if (cartItems[products[i].id] > 0) {
+        let product = products[i];
+        let item = {
+          id: product.id,
+          title: product.name,
+          image: product.image,
+          price: product.new_price,
+          quantity: cartItems[product.id],
+        };
+        items.push(item);
+      }
+    }
+    console.log(items);
+    return items;
+  };
+
+  const handleCheckout = async () => {
+    console.log(cartItems);
+    await fetch(`${Base_Url}/checkout/createSession`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(getCheckoutProductsFromCartItems()),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("data from session", data);
+        if (data.success) {
+          window.location.replace(data.Message);
+        } else {
+          alert(data.Message);
+        }
+      });
+  };
   return (
     <div className="cartitems">
       <div className="cartitems-format-main">
@@ -71,7 +110,7 @@ const CartItems = () => {
               <h3>${getTotalCartAmount()}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cartitems-promocode">
           <p>If you have a promo code, Enter it here</p>
