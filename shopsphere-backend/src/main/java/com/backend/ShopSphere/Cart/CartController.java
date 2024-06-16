@@ -32,4 +32,9 @@ public class CartController {
     public  ResponseEntity<ApiResponse> getCartData(@RequestHeader("auth-token") String jwtToken){
         return cartService.getCartData(jwtToken);
     }
+
+    @PostMapping("/clear")
+    public ResponseEntity<ApiResponse> clearCart(@RequestHeader("auth-token") String jwtToken){
+        return cartService.clearCartData(jwtToken);
+    }
 }
