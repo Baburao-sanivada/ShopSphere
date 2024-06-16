@@ -94,6 +94,23 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  const clearCart = async () => {
+    let updatedCart = getDefaultCart();
+    await fetch(`${Base_Url}/cart/clear`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": `${localStorage.getItem("auth-token")}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("Message From clearCart");
+        if (data.success) console.log("Cart Cleared Successfully");
+        setCartItems(updatedCart);
+      });
+  };
+
   const contextValue = {
     products,
     getTotalCartItems,
@@ -101,6 +118,7 @@ const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    clearCart,
   };
   return (
     <ShopContext.Provider value={contextValue}>
