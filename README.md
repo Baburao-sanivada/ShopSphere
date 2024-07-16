@@ -28,8 +28,6 @@ ShopSphere is an e-commerce web application designed to offer a comprehensive on
 - **Build Tools**: 
   - Maven (Backend)
   - Webpack (Frontend)
-- **Deployment**: 
-  - AWS
 
 ## Getting Started
 
