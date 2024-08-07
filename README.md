@@ -100,3 +100,8 @@ ShopSphere is an e-commerce web application designed to offer a comprehensive on
 3. Commit your changes (`git commit -m 'Description about changes'`).
 4. Push to the branch (`git push origin feature/name`).
 5. Create a new Pull Request.
+
+
+## Micro Services Architecture
+![Screenshot 2024-08-08 032307](https://github.com/user-attachments/assets/8d844e98-50c8-4063-a7f3-17556285d95b)
+
